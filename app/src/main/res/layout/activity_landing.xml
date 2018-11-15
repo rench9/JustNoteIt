@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.landingpage.LandingActivity">
+
+    <fragment
+        android:id="@+id/fragContainer"
+        android:name="com.r4hu7.justnoteit.ui.landingpage.NotesListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/unit6"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="openNotePad"
+        android:src="@drawable/ic_add"
+        app:elevation="@dimen/elevation0"
+        app:fabSize="mini"
+        app:rippleColor="#08000000" />
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.r4hu7.justnoteit.ui.landingpage.NotesListViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".ui.landingpage.NotesListFragment">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="@dimen/search_bar_w"
+            android:layout_height="@dimen/search_bar_h"
+            android:layout_margin="@dimen/unit2"
+            android:background="@drawable/shape_round_rect"
+            android:visibility="visible"
+            app:hintEnabled="false"
+            app:hintTextAppearance="@style/typography_button">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_search_dark"
+                android:drawablePadding="@dimen/unit2"
+                android:hint="@string/search"
+                android:inputType="textAutoComplete"
+                android:paddingStart="@dimen/unit3"
+                android:paddingEnd="@dimen/unit3"
+                android:textColor="@color/shade8"
+                android:textColorHint="@color/shade5"
+                android:textSize="@dimen/typography_body2"
+                android:textStyle="bold" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </LinearLayout>
+</layout>

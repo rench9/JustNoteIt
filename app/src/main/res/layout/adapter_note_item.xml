@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="note"
+            type="com.r4hu7.justnoteit.data.model.Note" />
+
+        <variable
+            name="navigator"
+            type="java.lang.ref.WeakReference&lt;com.r4hu7.justnoteit.utils.NoteNavigator&gt;" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->navigator.get().openNotePad(note.id)}"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/typography_body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{note.title}"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/typography_body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{note.shortDescription}"
+            android:textColor="@color/shade6" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/typography_caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/unit3"
+                android:maxLines="1"
+                android:text="@{note.smartTime}"
+                android:textColor="@color/shade4" />
+
+            <View
+                setColor="@{note.colorCode}"
+                android:layout_width="@dimen/unit3"
+                android:layout_height="@dimen/unit3"
+                android:background="@drawable/shape_circle" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
