@@ -2,7 +2,6 @@ package com.r4hu7.justnoteit.data.local;
 
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.r4hu7.justnoteit.data.NoteDataSource;
 import com.r4hu7.justnoteit.data.model.Note;
@@ -39,8 +38,27 @@ public class LocalDataSource implements NoteDataSource {
     }
 
     @Override
+    public void getAllNotes(LoadItemCallback<List<Note>> loadItemCallback) {
+        loadItemCallback.onLoading();
+        Runnable runnable = () -> {
+            List<Note> notes = database.notesDao().geNotesWithoutLiveData();
+            if (notes != null && !notes.isEmpty())
+                loadItemCallback.onItemLoaded(notes);
+            else
+                loadItemCallback.onDataNotAvailable(new Exception("Notes not found!"));
+
+        };
+        execute(runnable);
+    }
+
+    @Override
     public LiveData<Note> getNote(int noteId) {
         return database.notesDao().getNote(noteId);
+    }
+
+    @Override
+    public List<Note> findNote(String bodySubString) {
+        return database.notesDao().findNote("%" + bodySubString + "%");
     }
 
     @Override
@@ -58,7 +76,6 @@ public class LocalDataSource implements NoteDataSource {
 
     @Override
     public void saveNote(Note note) {
-        Log.e("RESULT", String.valueOf(note.getBody() == null || note.getBody().isEmpty()));
         Runnable runnable = () -> {
             if (note.getBody() == null || note.getBody().isEmpty())
                 database.notesDao().deleteNote(note.getId());
@@ -85,7 +102,6 @@ public class LocalDataSource implements NoteDataSource {
         loadItemCallback.onLoading();
         Runnable runnable = () -> {
             int i = database.notesDao().getLastId();
-            Log.e("NOTE ID", String.valueOf(i));
             loadItemCallback.onItemLoaded(i);
         };
         execute(runnable);

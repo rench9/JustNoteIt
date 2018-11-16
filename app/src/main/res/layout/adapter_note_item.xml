@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="note"
             type="com.r4hu7.justnoteit.data.model.Note" />
@@ -28,21 +30,23 @@
             android:textStyle="bold" />
 
         <TextView
+            android:alpha="0.6"
             style="@style/typography_body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{note.shortDescription}"
-            android:textColor="@color/shade6" />
+            android:visibility="@{note.shortDescription!=null &amp;&amp; !note.shortDescription.empty ? View.VISIBLE :View.GONE}" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
+                android:layout_weight="1"
                 style="@style/typography_caption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

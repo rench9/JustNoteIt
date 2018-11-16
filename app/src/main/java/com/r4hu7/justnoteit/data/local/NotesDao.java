@@ -26,6 +26,9 @@ public interface NotesDao {
     @Query("SELECT * FROM _notes ORDER BY time DESC")
     LiveData<List<Note>> geNotes();
 
+    @Query("SELECT * FROM _notes ORDER BY time DESC")
+    List<Note> geNotesWithoutLiveData();
+
     @Query("SELECT * FROM _notes WHERE id=:noteId LIMIT 1")
     LiveData<Note> getNote(int noteId);
 
@@ -34,5 +37,8 @@ public interface NotesDao {
 
     @Query("SELECT id FROM _notes ORDER BY id DESC LIMIT 1")
     int getLastId();
+
+    @Query("SELECT * FROM _notes WHERE body like :bodySubString ORDER BY time DESC")
+    List<Note> findNote(String bodySubString);
 
 }

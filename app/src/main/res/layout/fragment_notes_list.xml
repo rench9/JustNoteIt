@@ -13,6 +13,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/shade0"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:context=".ui.landingpage.NotesListFragment">
@@ -20,7 +23,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="@dimen/search_bar_w"
             android:layout_height="@dimen/search_bar_h"
-            android:layout_margin="@dimen/unit2"
+            android:layout_margin="@dimen/unit4"
             android:background="@drawable/shape_round_rect"
             android:visibility="visible"
             app:hintEnabled="false"
@@ -40,11 +43,13 @@
                 android:textColor="@color/shade8"
                 android:textColorHint="@color/shade5"
                 android:textSize="@dimen/typography_body2"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onTextChanged="@{vm::searchNote}"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:overScrollMode="never"
             android:id="@+id/rvContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

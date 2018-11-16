@@ -70,5 +70,10 @@
     <dimen name="search_bar_h">38dp</dimen>
     <dimen name="search_bar_r">19dp</dimen>
 
+    <dimen name="reader_tool_w">282dp</dimen>
+    <dimen name="reader_tool_h">38dp</dimen>
+    <dimen name="reader_tool_padding">11dp</dimen>
+    <dimen name="reader_tool_padding_sec">14dp</dimen>
+
 
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:layout_marginTop="@dimen/unit3"
+    android:layout_marginBottom="@dimen/unit3"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/typography_body2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/unit2"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Loading ..." />
+
+    <TextView
+        android:id="@+id/tvTime"
+        style="@style/typography_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/unit4" />
+</LinearLayout>

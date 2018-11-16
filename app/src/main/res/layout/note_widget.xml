@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_widget_bg"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/widget_margin"
+    android:paddingEnd="@dimen/widget_margin">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/unit12"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/unit5"
+        android:paddingEnd="@dimen/unit3">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/typography_subheading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:text="@string/note" />
+
+        <ImageButton
+            android:id="@+id/btnOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:padding="@dimen/unit3"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_add"
+            android:tint="@color/shade5" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llHeader"
+        android:layout_marginStart="@dimen/unit4"
+        android:layout_marginEnd="@dimen/unit4"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+</RelativeLayout>

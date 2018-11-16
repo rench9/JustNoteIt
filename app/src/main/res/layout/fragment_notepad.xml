@@ -53,18 +53,35 @@
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 
-        <com.r4hu7.justnoteit.ui.view.NotePadEditText
-            android:id="@+id/tvBody"
-            style="@style/typography_body1"
+        <android.support.v4.widget.NestedScrollView
+            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
-            android:gravity="top"
-            android:inputType="textMultiLine"
-            android:onTextChanged="@{vm::saveNote}"
             android:paddingStart="@dimen/unit4"
             android:paddingEnd="@dimen/unit4"
-            android:text="@={vm.note.body}"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:fillViewport="true"
+            android:scrollbarThumbVertical="@drawable/shape_round_rect"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.r4hu7.justnoteit.ui.view.NotePadEditText
+                android:id="@+id/tvBody"
+                style="@style/typography_body1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="false"
+                android:onTextChanged="@{vm::saveNote}"
+                android:text="@={vm.note.body}" />
+        </android.support.v4.widget.NestedScrollView>
+
+        <com.r4hu7.justnoteit.ui.view.ReaderToolCardView
+            android:id="@+id/cvReaderTool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/unit6" />
+
     </android.support.design.widget.CoordinatorLayout>
 </layout>

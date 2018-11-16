@@ -17,10 +17,8 @@ public class LandingActivity extends AppCompatActivity {
     }
 
     public void openNotePad(View v) {
-//        Bundle bundle = new Bundle();
         Intent intent = new Intent(getApplicationContext(), NotepadActivity.class);
-//        bundle.p  utParcelable(NotepadActivity.NOTE_KEY, movie);
-//        intent.putExtras(bundle);
         startActivity(intent);
     }
+
 }

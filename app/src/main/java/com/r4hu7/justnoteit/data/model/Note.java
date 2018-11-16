@@ -30,7 +30,7 @@ public class Note {
     }
 
     public String getSimpleDate() {
-        return new SimpleDateFormat("dd MMM yyyy").format(new Date(time));
+        return new SimpleDateFormat("dd/MM").format(new Date(time));
     }
 
     public String getSmartTime() {
@@ -40,18 +40,18 @@ public class Note {
         if (mDiff < 60L) {
             if (mDiff == 0L)
                 return "Just now";
-            return "$mDiff min ago";
+            return String.format("%d min ago", mDiff);
         }
 
         long hDiff = TimeUnit.MILLISECONDS.toHours(timeNow) - TimeUnit.MILLISECONDS.toHours(date.getTime());
         if (hDiff < 48) {
             if (hDiff < 24)
-                return new SimpleDateFormat(String.format("'%d hour ago at' HH:mm a", hDiff)).format(date);
+                return new SimpleDateFormat(String.format("'%d hour ago' HH:mm a", hDiff)).format(date);
             else
-                return new SimpleDateFormat("1 day ago at' HH:mm a").format(date);
+                return new SimpleDateFormat("'1 day ago' HH:mm a").format(date);
         }
 
-        return new SimpleDateFormat("dd MMM yyyy 'at' HH:mm a").format(date);
+        return new SimpleDateFormat("dd MMM yyyy HH:mm a").format(date);
     }
 
     public int getId() {

@@ -28,8 +28,18 @@ public class NotesRepository implements NoteDataSource {
     }
 
     @Override
+    public void getAllNotes(LocalDataSource.LoadItemCallback<List<Note>> loadItemCallback) {
+        localDataSource.getAllNotes(loadItemCallback);
+    }
+
+    @Override
     public LiveData<Note> getNote(int noteId) {
         return localDataSource.getNote(noteId);
+    }
+
+    @Override
+    public List<Note> findNote(String bodySubString) {
+        return localDataSource.findNote(bodySubString);
     }
 
     @Override
