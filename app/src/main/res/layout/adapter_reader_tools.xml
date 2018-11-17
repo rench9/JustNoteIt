@@ -24,7 +24,7 @@
             android:tint="@color/btn_state_l" />
 
         <View
-            android:layout_width="0.3dp"
+            android:layout_width="@dimen/reader_tool_line_v"
             android:layout_height="match_parent"
             android:background="@color/shade3" />
 
@@ -43,7 +43,7 @@
             android:tint="@color/btn_state_l" />
 
         <View
-            android:layout_width="0.3dp"
+            android:layout_width="@dimen/reader_tool_line_v"
             android:layout_height="match_parent"
             android:background="@color/shade3" />
 
@@ -63,7 +63,7 @@
 
 
         <View
-            android:layout_width="0.3dp"
+            android:layout_width="@dimen/reader_tool_line_v"
             android:layout_height="match_parent"
             android:background="@color/shade3" />
 

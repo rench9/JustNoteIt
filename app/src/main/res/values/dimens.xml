@@ -7,4 +7,5 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
 
+    <item name="reader_tool_line_v" format="float" type="dimen">0.3dp</item>
 </resources>
