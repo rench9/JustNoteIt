@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Loading ..." />
+        android:text="@string/loading" />
 
     <TextView
         android:id="@+id/tvTime"

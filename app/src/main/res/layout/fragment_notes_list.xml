@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:ads="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -38,23 +38,34 @@
                 android:drawablePadding="@dimen/unit2"
                 android:hint="@string/search"
                 android:inputType="textAutoComplete"
+                android:onTextChanged="@{vm::searchNote}"
                 android:paddingStart="@dimen/unit3"
                 android:paddingEnd="@dimen/unit3"
                 android:textColor="@color/shade8"
                 android:textColorHint="@color/shade5"
                 android:textSize="@dimen/typography_body2"
-                android:textStyle="bold"
-                android:onTextChanged="@{vm::searchNote}"/>
+                android:textStyle="bold" />
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:overScrollMode="never"
             android:id="@+id/rvContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="vertical"
+            android:overScrollMode="never"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </layout>

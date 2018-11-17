@@ -9,6 +9,7 @@
         android:id="@+id/fragContainer"
         android:name="com.r4hu7.justnoteit.ui.notepad.NotepadFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_notepad" />
 
 </android.support.design.widget.CoordinatorLayout>

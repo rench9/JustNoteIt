@@ -47,4 +47,8 @@ dependencies {
     /*Room*/
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    /*Google Ads*/
+    implementation 'com.google.android.gms:play-services-ads:17.1.1'
+    /*Google Analytics*/
+    implementation 'com.google.android.gms:play-services-analytics:16.0.5'
 }

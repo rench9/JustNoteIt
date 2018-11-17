@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.r4hu7.justnoteit.R;
+import com.r4hu7.justnoteit.utils.AnalyticsApplication;
 
 import java.lang.ref.WeakReference;
 

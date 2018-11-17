@@ -12,4 +12,16 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="note">Note</string>
+
+
+    <string name="ad_mob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="loading">Loading…</string>
+    <string name="btn_desc_font_dec">Decrease font size button</string>
+    <string name="btn_desc_font_inc">Increase font size button</string>
+    <string name="btn_desc_night_mode">Night mode switch button</string>
+    <string name="btn_desc_brightness_switch">Change brightness button</string>
+    <string name="btn_desc_brightness_inc">Increase brightness button</string>
+    <string name="btn_desc_brightness_dec">Decrease brightness button</string>
+    <string name="btn_add_new_note">Add new note button</string>
 </resources>

@@ -21,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.r4hu7.justnoteit.R;
 import com.r4hu7.justnoteit.data.NotesRepository;
 import com.r4hu7.justnoteit.data.local.LocalDataSource;
@@ -30,6 +32,7 @@ import com.r4hu7.justnoteit.di.component.DaggerRepositoryComponent;
 import com.r4hu7.justnoteit.di.module.ContextModule;
 import com.r4hu7.justnoteit.ui.view.ReaderToolCardView;
 import com.r4hu7.justnoteit.ui.widget.NoteWidget;
+import com.r4hu7.justnoteit.utils.AnalyticsApplication;
 
 import java.util.Objects;
 
@@ -136,6 +139,7 @@ public class NotepadFragment extends Fragment implements NotesRepository.SaveNot
     @Override
     public void OnFontSizeChange(float sizeInPixel) {
         Log.e("OnFontSizeChange", String.valueOf(sizeInPixel));
+        trackTheFontSize(sizeInPixel);
 
     }
 
@@ -183,5 +187,16 @@ public class NotepadFragment extends Fragment implements NotesRepository.SaveNot
     public void onPause() {
         NoteWidget.sendRefreshBroadcast(getContext());
         super.onPause();
+    }
+
+    private void trackTheFontSize(float fontSize) {
+
+        AnalyticsApplication application = (AnalyticsApplication) getActivity().getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("font-size")
+                .setLabel(String.valueOf(fontSize))
+                .build());
     }
 }
