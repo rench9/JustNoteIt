@@ -77,8 +77,11 @@ public class NotesListFragment extends Fragment implements NoteNavigator {
         if (adapter == null)
             adapter = new NoteItemAdapter(new ArrayList<>(), this);
         repository.getAllNotes().observe(this, notes -> {
-            adapter.setItems(notes);
             mViewModel.setNotes(notes);
+            if (mViewModel.searchQuery.get() != null && !mViewModel.searchQuery.get().isEmpty())
+                adapter.setItems(mViewModel.getFoundNotes());
+            else
+                adapter.setItems(mViewModel.getNotes());
         });
     }
 
@@ -111,11 +114,14 @@ public class NotesListFragment extends Fragment implements NoteNavigator {
 
     @Override
     public void searchNotes(String searchString) {
+        if (searchString.isEmpty())
+            mViewModel.clearFoundNotes();
         new SearchAsyncTask(repository, this).execute(searchString);
     }
 
     @Override
     public void populateSearchList(List<Note> notes) {
+        mViewModel.setFoundNotes(notes);
         adapter.setItems(notes);
     }
 
