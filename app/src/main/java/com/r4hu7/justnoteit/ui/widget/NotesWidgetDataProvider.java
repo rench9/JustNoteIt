@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -99,7 +98,6 @@ public class NotesWidgetDataProvider implements RemoteViewsService.RemoteViewsFa
 
     @Override
     public void onItemLoaded(List<Note> notes) {
-        Log.e("DATA SIZE", String.valueOf(notes.size()));
         this.notes = notes;
         NoteWidget.sendRefreshBroadcast(context);
     }

@@ -17,6 +17,7 @@
         android:background="@color/shade0"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:foreground="@{vm.nightMode? @color/tint:@android:color/transparent}"
         tools:context=".ui.notepad.NotepadFragment">
 
         <android.support.design.widget.AppBarLayout
@@ -66,6 +67,7 @@
             <com.r4hu7.justnoteit.ui.view.NotePadEditText
                 android:id="@+id/tvBody"
                 style="@style/typography_body1"
+                textSize="@{vm.textSize}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"

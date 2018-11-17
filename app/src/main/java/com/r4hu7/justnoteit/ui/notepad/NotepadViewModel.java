@@ -1,7 +1,9 @@
 package com.r4hu7.justnoteit.ui.notepad;
 
 import android.arch.lifecycle.ViewModel;
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
+import android.databinding.ObservableFloat;
 
 import com.r4hu7.justnoteit.data.NotesRepository;
 import com.r4hu7.justnoteit.data.model.Note;
@@ -11,6 +13,9 @@ import java.lang.ref.WeakReference;
 public class NotepadViewModel extends ViewModel {
     public ObservableField<Note> note = new ObservableField<>();
     private WeakReference<NotesRepository.SaveNotes> navigator;
+    public ObservableFloat textSize = new ObservableFloat();
+    public ObservableBoolean nightMode = new ObservableBoolean(false);
+
 
     public void setNote(Note note) {
         this.note.set(note);

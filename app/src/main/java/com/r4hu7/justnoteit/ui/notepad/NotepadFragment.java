@@ -16,7 +16,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -138,14 +137,17 @@ public class NotepadFragment extends Fragment implements NotesRepository.SaveNot
 
     @Override
     public void OnFontSizeChange(float sizeInPixel) {
-        Log.e("OnFontSizeChange", String.valueOf(sizeInPixel));
+        mViewModel.textSize.set(sizeInPixel);
         trackTheFontSize(sizeInPixel);
 
     }
 
     @Override
     public void OnNightModeChange(boolean isEnabled) {
-        Log.e("OnNightModeChange", String.valueOf(isEnabled));
+        mViewModel.nightMode.set(isEnabled);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getActivity().getWindow().setStatusBarColor(getResources().getColor(isEnabled ? R.color.tint : R.color.shade0));
+        }
     }
 
     @Override

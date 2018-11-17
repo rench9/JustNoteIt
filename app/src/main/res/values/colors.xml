@@ -23,4 +23,5 @@
     <color name="dark_shade_1">#000000</color>
     <color name="dark_shade_2">#292929</color>
     <color name="dark_shade_3">#cfd4ef</color>
+    <color name="tint">#24ffc600</color>
 </resources>
